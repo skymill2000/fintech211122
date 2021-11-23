@@ -10,8 +10,10 @@ const ListExmaple = () => {
 
   return (
     <div>
-      {users.map(({ name, age }) => {
-        return <Welcome username={name} userage={age}></Welcome>;
+      {users.map(({ name, age, height }) => {
+        return (
+          <Welcome username={name} userage={age} userheight={height}></Welcome>
+        );
       })}
     </div>
   );
