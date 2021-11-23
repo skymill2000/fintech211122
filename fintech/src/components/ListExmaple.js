@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Welcome from "./Welcome";
 
 const ListExmaple = () => {
   const [users, setUsers] = useState([
@@ -7,7 +8,13 @@ const ListExmaple = () => {
     { name: "길동", age: 16, height: 180 },
   ]);
 
-  return <div></div>;
+  return (
+    <div>
+      {users.map(({ name, age }) => {
+        return <Welcome username={name} userage={age}></Welcome>;
+      })}
+    </div>
+  );
 };
 
 export default ListExmaple;
