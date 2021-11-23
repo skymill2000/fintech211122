@@ -2,10 +2,13 @@ import React from "react";
 
 const StateExample = () => {
   let username = "홍길동";
+
   const handleChange = (e) => {
     const { value } = e.target;
     username = value;
+    console.log(username);
   };
+
   return (
     <div>
       state 예제
