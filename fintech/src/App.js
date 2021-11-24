@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AxiosExample from "./components/AxiosExample";
 import TopHeader from "./components/common/TopHeader";
 import ListExmaple from "./components/ListExmaple";
+import AuthPage from "./pages/AuthPage";
 import NewApiPage from "./pages/NewApiPage";
 
 function App() {
@@ -19,6 +20,9 @@ function App() {
         </Route>
         <Route path="/news" exact>
           <NewApiPage></NewApiPage>
+        </Route>
+        <Route path="/" exact>
+          <AuthPage></AuthPage>
         </Route>
 
         {/* test3 추가 해주세요 ! TopHeader에 test3 입니다 내용 출력 */}
