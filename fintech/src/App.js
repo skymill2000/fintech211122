@@ -3,6 +3,7 @@ import AxiosExample from "./components/AxiosExample";
 import TopHeader from "./components/common/TopHeader";
 import ListExmaple from "./components/ListExmaple";
 import AuthPage from "./pages/AuthPage";
+import AuthResultPage from "./pages/AuthResultPage";
 import NewApiPage from "./pages/NewApiPage";
 
 function App() {
@@ -24,8 +25,9 @@ function App() {
         <Route path="/" exact>
           <AuthPage></AuthPage>
         </Route>
-
-        {/* test3 추가 해주세요 ! TopHeader에 test3 입니다 내용 출력 */}
+        <Route path="/authResult" exact>
+          <AuthResultPage></AuthResultPage>
+        </Route>
       </Switch>
     </Router>
   );
