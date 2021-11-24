@@ -4,9 +4,13 @@ import axios from "axios";
 
 const AxiosExample = () => {
   const handleClick = () => {
-    axios.get("https://naver.com").then((reponse) => {
-      console.log(reponse);
-    });
+    axios
+      .get(
+        "https://newsapi.org/v2/everything?q=apple&from=2021-10-24&sortBy=publishedAt&apiKey=78bc6ddd8cdb48ceac76f5f9b9dfc4c5&language=ko"
+      )
+      .then((reponse) => {
+        console.log(reponse.data);
+      });
   };
 
   return (
