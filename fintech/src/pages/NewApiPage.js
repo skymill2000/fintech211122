@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import TopHeader from "../components/common/TopHeader";
+import SearchInput from "../components/news/SearchInput";
+import NewsList from "../components/news/NewsList";
 
 const NewApiPage = () => {
   const [newsList, setNewsList] = useState([]);
@@ -24,12 +26,11 @@ const NewApiPage = () => {
   return (
     <>
       <TopHeader title={"뉴스 검색"}></TopHeader>
-      <input onChange={handleChange}></input>
-      <button onClick={handleClick}>검색</button>
-      {/* result list component */}
-      {newsList.map((n, index) => {
-        return <p key={index}>{n.title}</p>;
-      })}
+      <SearchInput
+        handleChange={handleChange}
+        handleClick={handleClick}
+      ></SearchInput>
+      <NewsList news={newsList}></NewsList>
     </>
   );
 };
