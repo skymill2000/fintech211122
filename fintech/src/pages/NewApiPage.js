@@ -17,10 +17,17 @@ const NewApiPage = () => {
         setNewsList(data.articles);
       });
   };
+
+  const handleChange = (e) => {
+    const { value } = e.target;
+    console.log(value);
+    setSearchInput(value);
+  };
+
   return (
     <>
       <TopHeader title={"뉴스 검색"}></TopHeader>
-      <input></input>
+      <input onChange={handleChange}></input>
       <button onClick={handleClick}>검색</button>
       {/* result list component */}
       {newsList.map((n) => {
