@@ -17,8 +17,8 @@ const NewApiPage = () => {
   return (
     <>
       <TopHeader title={"뉴스 검색"}></TopHeader>
-      <button onClick={handleClick}>웹 데이터 가져오기</button>
-      {/* search input component */}
+      {/* search input component 검색어를 수집하는 INPut  */}{" "}
+      <button onClick={handleClick}>검색</button>
       {/* result list component */}
       {newsList.map((n) => {
         return <p>{n.title}</p>;
