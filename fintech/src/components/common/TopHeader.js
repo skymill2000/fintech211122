@@ -10,7 +10,7 @@ const TopHeaderBlock = styled.div`
   font-weight: bold;
   width: auto;
   height: 60px;
-  border-bottom: 1px double #00ff88;
+  border-bottom: 1px double #000000;
 `;
 
 const TopHeader = ({ title }) => {
