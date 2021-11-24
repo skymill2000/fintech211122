@@ -4,7 +4,10 @@ import TopHeader from "../components/common/TopHeader";
 
 const NewApiPage = () => {
   const [newsList, setNewsList] = useState([]);
+  const [serachInput, setSearchInput] = useState("");
+  //스테이트 추가
   const handleClick = () => {
+    //템플릿 리터럴을 사용
     axios
       .get(
         "https://newsapi.org/v2/everything?q=apple&from=2021-10-24&sortBy=publishedAt&apiKey=78bc6ddd8cdb48ceac76f5f9b9dfc4c5&language=ko"
@@ -17,7 +20,7 @@ const NewApiPage = () => {
   return (
     <>
       <TopHeader title={"뉴스 검색"}></TopHeader>
-      {/* search input component 검색어를 수집하는 INPut  */}{" "}
+      <input></input>
       <button onClick={handleClick}>검색</button>
       {/* result list component */}
       {newsList.map((n) => {
