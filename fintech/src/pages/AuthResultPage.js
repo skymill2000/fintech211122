@@ -12,8 +12,8 @@ const AuthResultPage = () => {
   const getAccessToken = () => {
     const sendData = {
       code: code,
-      client_id: "q7kH44ThJwjpvNRg0BbJvE1yxvx5X53DKz1rNgPF",
-      client_secret: "yVT6irMr2h4ZTHzZY7sDpbvhm1nlOzr4nP7DYRVy",
+      client_id: "q7kH44ThJwjpvNRg0BbJvE1yxvx5X53DKz1rNgPF", //<-
+      client_secret: "yVT6irMr2h4ZTHzZY7sDpbvhm1nlOzr4nP7DYRVy", //<-
       redirect_uri: "http://localhost:3000/authResult",
       grant_type: "authorization_code",
     };
@@ -22,8 +22,8 @@ const AuthResultPage = () => {
 
     const option = {
       method: "POST",
-      url: "",
-      headers: {},
+      url: "", //<-
+      headers: {}, //<-
       data: encodedSendData,
     };
 
