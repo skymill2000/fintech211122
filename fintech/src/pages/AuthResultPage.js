@@ -22,8 +22,10 @@ const AuthResultPage = () => {
 
     const option = {
       method: "POST",
-      url: "", //<-
-      headers: {}, //<-
+      url: "https://testapi.openbanking.or.kr/oauth/2.0/token", //<-
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+      }, //<-
       data: encodedSendData,
     };
 
