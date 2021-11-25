@@ -9,6 +9,7 @@ const BalancePage = () => {
   const { search } = useLocation(); //query string get
   const { fintechUseNo } = queryString.parse(search);
   const [balance, setbalance] = useState(0);
+  const [transactionList, setTransactionList] = useState([]);
   console.log(fintechUseNo);
 
   const genTransId = () => {
@@ -19,6 +20,7 @@ const BalancePage = () => {
 
   useEffect(() => {
     getBalance();
+    getTransactionList();
   }, []);
   // 2. 받아온 데이터를 바탕으로 ? => axios 요청 작성하기 => bank_trans_id = 직접 손으로 타이핑 <- main axios 참조
   const getBalance = () => {
@@ -43,11 +45,33 @@ const BalancePage = () => {
     });
   };
 
+  const getTransactionList = () => {
+    const accessToken = localStorage.getItem("accessToken");
+    const option = {
+      method: "GET",
+      url: "",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        Authorization: "bearer " + accessToken,
+      },
+      params: {
+        bank_tran_id: genTransId(),
+        fintech_use_num: fintechUseNo,
+        tran_dtime: "20211125132500",
+      },
+    };
+    axios(option).then(({ data }) => {
+      console.log(data);
+      setTransactionList(data.res_list);
+    });
+  };
+
   // 3. 카드 오브젝트를 생성하여 랜더링하기
   return (
     <>
       <TopHeader title="잔액 조회"></TopHeader>
       {balance}
+      {/* {transactionList.} */}
     </>
   );
 };
