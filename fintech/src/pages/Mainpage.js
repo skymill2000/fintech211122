@@ -37,7 +37,15 @@ const Mainpage = () => {
   return (
     <>
       <TopHeader title="계좌목록"></TopHeader>
-      <MainCard></MainCard>
+      {/* ㅂㅏㄴ보ㄱㄱ문문을  통통해  카카드  그그리리기기 */}
+      {accountList.map((account) => {
+        return (
+          <MainCard
+            bankName={account.bank_name}
+            fintechUseNo={account.fintech_use_num}
+          ></MainCard>
+        );
+      })}
     </>
   );
 };
