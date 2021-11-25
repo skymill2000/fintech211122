@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import TopHeader from "../components/common/TopHeader";
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
@@ -8,6 +8,8 @@ const AuthResultPage = () => {
   console.log(useLocation());
   const { search } = useLocation(); //query string get
   const { code } = queryString.parse(search);
+  const [accessToken, setaccessToken] = useState("토큰 받아오기전");
+  const [userSeqNo, setuserSeqNo] = useState("사용자 번호");
   console.log(code);
   const getAccessToken = () => {
     const sendData = {
@@ -29,8 +31,11 @@ const AuthResultPage = () => {
       data: encodedSendData,
     };
 
-    axios(option).then((response) => {
-      console.log(response);
+    axios(option).then(({ data }) => {
+      setaccessToken(data.access_token);
+      setuserSeqNo(data.user_seq_no);
+      localStorage.setItem("accessToken", data.access_token);
+      localStorage.setItem("userSeqNo", data.user_seq_no);
     });
   };
 
@@ -39,6 +44,8 @@ const AuthResultPage = () => {
       <TopHeader title="토큰 발급 과정"></TopHeader>
       <p>사용자 인증 코드 : {code}</p>
       <button onClick={getAccessToken}>토큰 발급하기</button>
+      <p>access token : {accessToken}</p>
+      <p>user seq no : {userSeqNo}</p>
     </div>
   );
 };
