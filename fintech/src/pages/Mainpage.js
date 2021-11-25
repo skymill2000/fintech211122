@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TopHeader from "../components/common/TopHeader";
 import axios from "axios";
+import MainCard from "../components/main/MainCard";
 const Mainpage = () => {
   const [accountList, setAccountList] = useState([]);
 
@@ -35,6 +36,7 @@ const Mainpage = () => {
   return (
     <>
       <TopHeader title="계좌목록"></TopHeader>
+      <MainCard></MainCard>
     </>
   );
 };
