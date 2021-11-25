@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import TopHeader from "../components/common/TopHeader";
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
@@ -8,7 +8,15 @@ const BalancePage = () => {
   // 1. 쿼리스트링에서 fintechUseNo 받아오기 (useLocation / queryString ) 활용 <-authResult 참조
   const { search } = useLocation(); //query string get
   const { fintechUseNo } = queryString.parse(search);
+  const [balance, setbalance] = useState(0);
   console.log(fintechUseNo);
+
+  const genTransId = () => {
+    let countnum = Math.floor(Math.random() * 1000000000) + 1;
+    let transId = "T991599190U" + countnum; //이용기관번호 본인것 입력
+    return transId;
+  };
+
   useEffect(() => {
     getBalance();
   }, []);
@@ -23,11 +31,15 @@ const BalancePage = () => {
         "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
         Authorization: "bearer " + accessToken,
       },
-      params: {},
+      params: {
+        bank_tran_id: genTransId(),
+        fintech_use_num: fintechUseNo,
+        tran_dtime: "20211125132500",
+      },
     };
-
     axios(option).then(({ data }) => {
       console.log(data);
+      setbalance(data.balance_amt);
     });
   };
 
@@ -35,6 +47,7 @@ const BalancePage = () => {
   return (
     <>
       <TopHeader title="잔액 조회"></TopHeader>
+      {balance}
     </>
   );
 };
