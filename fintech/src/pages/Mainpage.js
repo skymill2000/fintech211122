@@ -16,15 +16,20 @@ const Mainpage = () => {
 
     //work4 사용자 정보 조회 Api 호출
     const option = {
-      method: "POST",
-      url: "https://testapi.openbanking.or.kr/oauth/2.0/token",
+      method: "GET",
+      url: "https://testapi.openbanking.or.kr/v2.0/user/me",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        Authorization: "bearer " + accessToken,
       },
-      params: {},
+      params: {
+        user_seq_no: userSeqNo,
+      },
     };
 
-    axios(option).then(({ data }) => {});
+    axios(option).then(({ data }) => {
+      console.log(data);
+    });
   };
 
   return (
