@@ -3,6 +3,8 @@ import TopHeader from "../components/common/TopHeader";
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
 import axios from "axios";
+import TransactionList from "../components/balance/TransactionList";
+import BalanceCard from "../components/balance/BalanceCard";
 
 const BalancePage = () => {
   // 1. 쿼리스트링에서 fintechUseNo 받아오기 (useLocation / queryString ) 활용 <-authResult 참조
@@ -41,7 +43,7 @@ const BalancePage = () => {
     };
     axios(option).then(({ data }) => {
       console.log(data);
-      setbalance(data.balance_amt);
+      setbalance(data);
     });
   };
 
@@ -75,10 +77,12 @@ const BalancePage = () => {
   return (
     <>
       <TopHeader title="잔액 조회"></TopHeader>
-      {balance}
-      {transactionList.map((transaction) => {
-        return <p>{transaction.tran_amt}</p>;
-      })}
+      <BalanceCard
+        bankName={balance.bank_name}
+        fintechNo={balance.fintech_use_num}
+        balance={balance.balance_amt}
+      ></BalanceCard>
+      <TransactionList transactionList={transactionList}></TransactionList>
     </>
   );
 };
