@@ -49,7 +49,7 @@ const BalancePage = () => {
     const accessToken = localStorage.getItem("accessToken");
     const option = {
       method: "GET",
-      url: "",
+      url: "/v2.0/account/transaction_list/fin_num",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
         Authorization: "bearer " + accessToken,
@@ -57,6 +57,11 @@ const BalancePage = () => {
       params: {
         bank_tran_id: genTransId(),
         fintech_use_num: fintechUseNo,
+        inquiry_type: "A",
+        inquiry_base: "D",
+        from_date: "20190101",
+        to_date: "20190101",
+        sort_order: "D",
         tran_dtime: "20211125132500",
       },
     };
