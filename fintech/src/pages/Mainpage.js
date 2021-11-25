@@ -17,7 +17,7 @@ const Mainpage = () => {
     //work4 사용자 정보 조회 Api 호출
     const option = {
       method: "GET",
-      url: "https://testapi.openbanking.or.kr/v2.0/user/me",
+      url: "/v2.0/user/me",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
         Authorization: "bearer " + accessToken,
