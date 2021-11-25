@@ -19,7 +19,7 @@ const QrCode = () => {
     <>
       <TopHeader title="QR 코드"></TopHeader>
       <QRBlock>
-        <QRCode value={fintechUseNo} />
+        <QRCode size={180} value={fintechUseNo} />
       </QRBlock>
     </>
   );
