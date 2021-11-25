@@ -4,6 +4,7 @@ import TopHeader from "./components/common/TopHeader";
 import ListExmaple from "./components/ListExmaple";
 import AuthPage from "./pages/AuthPage";
 import AuthResultPage from "./pages/AuthResultPage";
+import Mainpage from "./pages/Mainpage";
 import NewApiPage from "./pages/NewApiPage";
 
 function App() {
@@ -27,6 +28,9 @@ function App() {
         </Route>
         <Route path="/authResult" exact>
           <AuthResultPage></AuthResultPage>
+        </Route>
+        <Route path="/main" exact>
+          <Mainpage></Mainpage>
         </Route>
       </Switch>
     </Router>
