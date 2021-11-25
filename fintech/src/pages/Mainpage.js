@@ -30,6 +30,7 @@ const Mainpage = () => {
 
     axios(option).then(({ data }) => {
       console.log(data);
+      setAccountList(data.res_list);
     });
   };
 
