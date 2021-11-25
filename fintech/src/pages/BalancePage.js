@@ -76,7 +76,9 @@ const BalancePage = () => {
     <>
       <TopHeader title="잔액 조회"></TopHeader>
       {balance}
-      {/* {transactionList.} */}
+      {transactionList.map((transaction) => {
+        return <p>{transaction.tran_amt}</p>;
+      })}
     </>
   );
 };
