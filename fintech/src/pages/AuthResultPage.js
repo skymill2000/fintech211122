@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TopHeader from "../components/common/TopHeader";
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
@@ -11,6 +11,12 @@ const AuthResultPage = () => {
   const [accessToken, setaccessToken] = useState("토큰 받아오기전");
   const [userSeqNo, setuserSeqNo] = useState("사용자 번호");
   console.log(code);
+
+  useEffect(() => {
+    getAccessToken();
+  }, []);
+  //컴포넌트가 마운트 될때 실행
+
   const getAccessToken = () => {
     const sendData = {
       code: code,
@@ -36,6 +42,8 @@ const AuthResultPage = () => {
       setuserSeqNo(data.user_seq_no);
       localStorage.setItem("accessToken", data.access_token);
       localStorage.setItem("userSeqNo", data.user_seq_no);
+      window.opener.location.href = "/main";
+      window.close();
     });
   };
 
@@ -43,7 +51,6 @@ const AuthResultPage = () => {
     <div>
       <TopHeader title="토큰 발급 과정"></TopHeader>
       <p>사용자 인증 코드 : {code}</p>
-      <button onClick={getAccessToken}>토큰 발급하기</button>
       <p>access token : {accessToken}</p>
       <p>user seq no : {userSeqNo}</p>
     </div>
