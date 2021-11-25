@@ -3,7 +3,7 @@ import React from "react";
 const TransactionList = ({ transactionList }) => {
   return (
     <div>
-      <table style={{ width: "100%" }}>
+      <table style={{ width: "100%", margin: "10px" }}>
         <thead>
           <tr>
             <td>날짜</td>

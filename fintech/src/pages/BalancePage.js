@@ -69,7 +69,11 @@ const BalancePage = () => {
     };
     axios(option).then(({ data }) => {
       console.log(data);
-      setTransactionList(data.res_list);
+      if (data.rsp_code === "A0000") {
+        setTransactionList(data.res_list);
+      } else {
+        alert("데이터 조회 실패");
+      }
     });
   };
 
