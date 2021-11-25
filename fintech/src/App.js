@@ -4,6 +4,7 @@ import TopHeader from "./components/common/TopHeader";
 import ListExmaple from "./components/ListExmaple";
 import AuthPage from "./pages/AuthPage";
 import AuthResultPage from "./pages/AuthResultPage";
+import BalancePage from "./pages/BalancePage";
 import Mainpage from "./pages/Mainpage";
 import NewApiPage from "./pages/NewApiPage";
 
@@ -31,6 +32,9 @@ function App() {
         </Route>
         <Route path="/main" exact>
           <Mainpage></Mainpage>
+        </Route>
+        <Route path="/balance" exact>
+          <BalancePage></BalancePage>
         </Route>
       </Switch>
     </Router>
