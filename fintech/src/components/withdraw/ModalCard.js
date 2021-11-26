@@ -77,7 +77,45 @@ const ModalCard = ({ bankName, fintechUseNo, tofintechno }) => {
   };
 
   const deposit = () => {
-    //#final work
+    let sendData = JSON.stringify({
+      cntr_account_type: "N",
+      cntr_account_num: "4262679045",
+      wd_pass_phrase: "NONE",
+      wd_print_content: "환불금액",
+      name_check_option: "off",
+      tran_dtime: "20190910101921",
+      req_cnt: "1",
+      req_list: [
+        {
+          tran_no: "1",
+          bank_tran_id: genTransId(),
+          fintech_use_num: tofintechno,
+          print_content: "쇼핑몰환불",
+          tran_amt: amount,
+          req_client_name: "홍길동",
+          req_client_fintech_use_num: tofintechno,
+          req_client_num: "HONGGILDONG1234",
+          transfer_purpose: "TR",
+        },
+      ],
+    });
+    const twoLeggedToken =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJUOTkxNTk5MTkwIiwic2NvcGUiOlsib29iIl0sImlzcyI6Imh0dHBzOi8vd3d3Lm9wZW5iYW5raW5nLm9yLmtyIiwiZXhwIjoxNjQ1NjgxMTUxLCJqdGkiOiIyZmIyMTdkZS1mNmRjLTQ4YWYtYmJjYi05ZmNiOWMxNDJkMmYifQ.ePNsMmso7zecgNfJJzKEDRe4Z4Q31oABnf0SO7YinYs";
+    const option = {
+      method: "POST",
+      url: "/v2.0/transfer/deposit/fin_num",
+      headers: {
+        Authorization: `bearer ${twoLeggedToken}`,
+      },
+      data: sendData,
+    };
+    //axios call
+    axios(option).then(({ data }) => {
+      console.log(data);
+      if (data.rsp_code === "A0000") {
+        alert("결제 성공");
+      }
+    });
   };
 
   return (
