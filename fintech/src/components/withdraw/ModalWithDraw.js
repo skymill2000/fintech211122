@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Slider from "react-slick";
 import axios from "axios";
-// import ModalCard from "./ModalCard";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
+import ModalCard from "./ModalCard";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const ModalWithdrawBlock = styled.div`
   display: flex;
@@ -50,7 +50,7 @@ const ModalWithdraw = ({ tofintechno }) => {
 
   return (
     <ModalWithdrawBlock>
-      {/* <Slider {...settings}>
+      <Slider {...settings}>
         {acountList.map((account) => {
           return (
             <ModalCard
@@ -61,7 +61,7 @@ const ModalWithdraw = ({ tofintechno }) => {
             ></ModalCard>
           );
         })}
-      </Slider> */}
+      </Slider>
     </ModalWithdrawBlock>
   );
 };
