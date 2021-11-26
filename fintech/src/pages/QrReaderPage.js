@@ -22,14 +22,14 @@ const CustomStyles = {
 };
 
 const QrReaderPage = () => {
-  const [openModal, setOpenModal] = useState(false);
+  const [openModal, setOpenModal] = useState(false); //no camera : true
+  const [result, setResult] = useState("No result"); //no camera : 돈을 송금할 대상 계좌
 
   const delay = 500;
   const previewStyle = {
     height: 375,
     width: 375,
   };
-  const [result, setResult] = useState("No result");
 
   const handleScan = (result) => {
     console.log(result);

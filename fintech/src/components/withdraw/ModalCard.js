@@ -39,7 +39,23 @@ const ModalCard = ({ bankName, fintechUseNo, tofintechno }) => {
     return transId;
   };
 
-  const handleWithdraw = () => {};
+  const handleWithdraw = () => {
+    //#출금 기능 작성하기
+    //axios ? 데이터를 전송 하기
+    let sendData = JSON.stringify({
+      //오브젝트
+    });
+
+    const option = {
+      method: "POST",
+      url: "/v2.0/transfer/withdraw/fin_num",
+      headers: {
+        Authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
+      data: sendData,
+    };
+    //axios call
+  };
 
   const deposit = () => {};
 
