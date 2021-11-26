@@ -43,9 +43,22 @@ const ModalCard = ({ bankName, fintechUseNo, tofintechno }) => {
     //#출금 기능 작성하기
     //axios ? 데이터를 전송 하기
     let sendData = JSON.stringify({
-      //오브젝트
+      bank_tran_id: genTransId(),
+      cntr_account_type: "N",
+      cntr_account_num: "7832932596",
+      dps_print_content: "쇼핑몰환불",
+      fintech_use_num: fintechUseNo,
+      wd_print_content: "키사페이출금",
+      tran_amt: amount,
+      tran_dtime: "20190910101921",
+      req_client_name: "홍길동",
+      req_client_num: "HONGGILDONG1234",
+      req_client_fintech_use_num: fintechUseNo,
+      transfer_purpose: "ST",
+      recv_client_name: "진상언",
+      recv_client_bank_code: "097",
+      recv_client_account_num: "232000067812",
     });
-
     const option = {
       method: "POST",
       url: "/v2.0/transfer/withdraw/fin_num",
@@ -55,6 +68,9 @@ const ModalCard = ({ bankName, fintechUseNo, tofintechno }) => {
       data: sendData,
     };
     //axios call
+    axios(option).then(({ data }) => {
+      console.log(data);
+    });
   };
 
   const deposit = () => {};
