@@ -22,8 +22,8 @@ const CustomStyles = {
 };
 
 const QrReaderPage = () => {
-  const [openModal, setOpenModal] = useState(false); //no camera : true
-  const [result, setResult] = useState("No result"); //no camera : 돈을 송금할 대상 계좌
+  const [openModal, setOpenModal] = useState(true); //no camera : true
+  const [result, setResult] = useState("199159919057870987723340"); //no camera : 돈을 송금할 대상 계좌
 
   const delay = 500;
   const previewStyle = {
@@ -46,12 +46,12 @@ const QrReaderPage = () => {
   return (
     <>
       <TopHeader title="qr 코드 읽기"></TopHeader>
-      <QrReader
+      {/* <QrReader
         delay={delay}
         style={previewStyle}
         onError={handleError}
         onScan={handleScan}
-      />
+      /> */}
       <p>{result}</p>
       <Modal
         isOpen={openModal}
