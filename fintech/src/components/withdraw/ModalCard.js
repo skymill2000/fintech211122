@@ -70,10 +70,15 @@ const ModalCard = ({ bankName, fintechUseNo, tofintechno }) => {
     //axios call
     axios(option).then(({ data }) => {
       console.log(data);
+      if (data.rsp_code === "A0000") {
+        deposit();
+      }
     });
   };
 
-  const deposit = () => {};
+  const deposit = () => {
+    //#final work
+  };
 
   return (
     <ModalCardBlock>
